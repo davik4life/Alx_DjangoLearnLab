@@ -15,7 +15,7 @@ from django.views.generic import DetailView
 # Chat GPT's help and provided code
 
 def list_books(request):
-    books = Book.objects.select_related("author").all()
+    books = Book.objects.all()
 
     context = {
         "books": books
@@ -36,4 +36,3 @@ class LibraryDetailView(DetailView):
     template_name = "relationship_app/library_detail.html"
     context_object_name = "library"
 
-    
