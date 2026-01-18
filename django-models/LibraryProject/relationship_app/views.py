@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # from relationship_app.models import Book, Author, Librarian, Library
 from django.views.generic.detail import DetailView
 from .models import Library, Book
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 # import using FBV Function Based View
@@ -23,6 +25,46 @@ def list_books(request):
     }
 
     return render(request, "relationship_app/list_books.html", context)
+
+
+# Views for register
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("list_books")
+    else:
+        form = UserCreationForm()
+    return render(request, "relationship_app/register.html", {"form": form})
+
+# Views for login
+
+def login(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("list_books")
+    else:
+        form = UserCreationForm()
+    return render(request, "relationship_app/login.html", {"form": form})
+
+# Views for logout
+
+def logout(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("list_books")
+    else:
+        form = UserCreationForm()
+    return render(request, "relationship_app/logout.html", {"form": form})
+
 
 
 # def query_books_by_author(request, author_name):
