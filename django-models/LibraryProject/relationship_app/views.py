@@ -4,6 +4,8 @@ from django.views.generic.detail import DetailView
 from .models import Library, Book
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 # import using FBV Function Based View
@@ -16,7 +18,7 @@ from django.contrib.auth.forms import UserCreationForm
 #     return render(request, 'books.html', {'books': books, 'authors': authors})
 
 # Chat GPT's help and provided code
-
+@login_required
 def list_books(request):
     books = Book.objects.all()
 
@@ -74,6 +76,7 @@ def logout(request):
 
 # Using CBV Class based View
 
+@LoginRequiredMixin
 class LibraryDetailView(DetailView):
     model = Library
     template_name = "relationship_app/library_detail.html"
