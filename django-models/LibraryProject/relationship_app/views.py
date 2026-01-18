@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from relationship_app.models import Book, Author, Librarian, Library
+# from relationship_app.models import Book, Author, Librarian, Library
 from django.views.generic import DetailView
+from .models import Library, Book
 
 # Create your views here.
 # import using FBV Function Based View
