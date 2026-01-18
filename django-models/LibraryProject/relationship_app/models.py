@@ -2,15 +2,18 @@ from django.db import models
 
 # Create your models here.
 class Author(models.Model):
-    pass
+    name = models.CharField(max_length=100)
 
 class Book(models.Model):
-    pass
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(Author)
 
 class Library(models.Model):
-    pass
+    name = models.CharField(max_length=200)
+    books = models.ManyToManyField(Book)
 
 class Librarian(models.Model):
-    pass
+    name = models.CharField(max_length=200)
+    library = models.OneToOneField(Library)
 
 
