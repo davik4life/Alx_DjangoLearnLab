@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # from relationship_app.models import Book, Author, Librarian, Library
-from django.views.generic import DetailView
+from django.views.generic.detail import DetailView
 from .models import Library, Book
 
 # Create your views here.
