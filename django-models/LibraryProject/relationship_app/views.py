@@ -37,3 +37,18 @@ class LibraryDetailView(DetailView):
     template_name = "relationship_app/library_detail.html"
     context_object_name = "library"
 
+
+class LoginView(DetailView):
+    model = Library
+    template_name = "relationship_app/login.html"
+    context_object_name = "library"
+
+class LogoutView(DetailView):
+    model = Library
+    template_name = "relationship_app/logout.html"
+    context_object_name = "library"
+
+class RegisterView(DetailView):
+    model = Library
+    template_name = "relationship_app/register.html"
+    context_object_name = "library"
