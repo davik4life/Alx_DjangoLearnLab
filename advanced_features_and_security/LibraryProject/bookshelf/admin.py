@@ -11,7 +11,7 @@ class BookAdmin(admin.ModelAdmin):
     admin.site.register = ("CustomUser", "CustomUserAdmin")
 
 
-@admin.register(CustomUser)
+@admin.site.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
 
