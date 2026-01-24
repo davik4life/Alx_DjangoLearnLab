@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Setup Custom User
+AUTH_USER_MODEL = "bookshelf.CustomUser"
+
 
 # Application definition
 
