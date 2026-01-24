@@ -52,11 +52,6 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
-    class Meta:
-        permissions = [
-            ("can_create", "Can create objects"),
-            ("can_delete", "Can delete objects"),
-        ]
     model = CustomUser
 
 
