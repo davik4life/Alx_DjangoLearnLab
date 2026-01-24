@@ -27,8 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Setup Custom User
-AUTH_USER_MODEL = "bookshelf.CustomUser"
+
 
 
 # Application definition
@@ -124,3 +123,7 @@ STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
+
+
+# Setup Custom User
+AUTH_USER_MODEL = "bookshelf.CustomUser"
