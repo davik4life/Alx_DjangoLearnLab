@@ -16,8 +16,6 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
-# Define a custom ModelAdmin class that includes configurations for the additional fields in your user model.
-class ModelAdmin()
 
 # Custom Manager Functions to Ensure it handles the new fields correctly
 class CustomUserManager(BaseUserManager):
