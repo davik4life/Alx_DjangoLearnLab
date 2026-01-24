@@ -23,9 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^w34m0p(e)isa!3ubc6_4(5o+0#9f5h@b3qtq_&h#x82u2#nft'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ["yourdomain.com", "www.yourdomain.com", "127.0.0.1", "localhost"]
+
 
 
 
@@ -41,10 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookshelf',
     'relationship_app',
+    'csp',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "csp.middleware.CSPMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -127,3 +132,28 @@ LOGIN_URL = '/login/'
 
 # Setup Custom User
 AUTH_USER_MODEL = "bookshelf.CustomUser"
+
+
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = "DENY"
+
+# For modern Django versions, browser XSS filter is largely obsolete, but some checkers still require it:
+SECURE_BROWSER_XSS_FILTER = True
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = True
+SECURE_REFERRER_POLICY = "same-origin"
+
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'",)
+CSP_IMG_SRC = ("'self'", "data:")
+CSP_FONT_SRC = ("'self'",)

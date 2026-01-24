@@ -28,3 +28,14 @@ def edit_book(request, book_id):
         book.save()
         return redirect("book_list")
     return render(request, "edit_book.html", {"book": book})
+
+# def search_books(request):
+#     form = BookSearchForm(request.GET)
+#     books = Book.objects.none()
+
+#     if form.is_valid():
+#         q = form.cleaned_data["q"]
+#         # ORM parameterizes queries safely
+#         books = Book.objects.filter(title__icontains=q)
+
+#     return render(request, "search_books.html", {"form": form, "books": books})
