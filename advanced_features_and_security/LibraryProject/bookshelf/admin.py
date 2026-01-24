@@ -11,7 +11,7 @@ class BookAdmin(admin.ModelAdmin):
     admin.site.register = ("CustomUser", "CustomUserAdmin")
 
 
-@admin.site.register(CustomUser)
+
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
 
@@ -35,3 +35,5 @@ class CustomUserAdmin(UserAdmin):
         "is_staff",
         "date_of_birth",
     )
+
+admin.site.register(CustomUser, CustomUserAdmin)
