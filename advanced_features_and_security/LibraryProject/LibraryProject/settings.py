@@ -157,3 +157,5 @@ CSP_SCRIPT_SRC = ("'self'",)
 CSP_STYLE_SRC = ("'self'",)
 CSP_IMG_SRC = ("'self'", "data:")
 CSP_FONT_SRC = ("'self'",)
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
