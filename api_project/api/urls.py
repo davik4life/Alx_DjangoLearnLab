@@ -4,6 +4,6 @@ from rest_framework.routers import DefaultRouter
 
 
 urlpatterns = [
-    # path('books/', BookViewSet.as_view(), name='books'),
-    path(DefaultRouter(), BookViewSet.as_view(), name='default'),
+    path('books/', BookViewSet.as_view(), name='books'),
+    path(DefaultRouter(), "router.urls", "include"),
 ]
