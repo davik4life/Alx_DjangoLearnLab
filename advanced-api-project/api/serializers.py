@@ -48,7 +48,7 @@ class AuthorSerializer(serializers.ModelSerializer):
     - `read_only=True` means books are returned when reading an Author,
       but you won't create/update Books through AuthorSerializer in this version.
     """
-    books = BookSerializer(many = True, read_only = True)
+    books = BookSerializer(many=True, read_only=True)
 
     class Meta:
         model = Author
