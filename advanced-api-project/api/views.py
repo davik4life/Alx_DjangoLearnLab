@@ -37,7 +37,7 @@ class BookListView(generics.ListAPIView):
     filter_backends = [
         DjangoFilterBackend,
         SearchFilter,
-        OrderingFilter,
+        Filters.OrderingFilter,
     ]
 
     # Filtering (Exact matches)
