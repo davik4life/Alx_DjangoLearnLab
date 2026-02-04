@@ -1,10 +1,9 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from .models import Book
 from .serializers import BookSerializer
 from django_filters import rest_framework
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter, OrderingFilter
 # Create your views here.
 class BookListView(generics.ListAPIView):
     """
@@ -36,8 +35,8 @@ class BookListView(generics.ListAPIView):
     # Exlicitly declare backends (optional since we set global defaults)
     filter_backends = [
         DjangoFilterBackend,
-        SearchFilter,
-        Filters.OrderingFilter,
+        filters.SearchFilter,
+        filters.OrderingFilter,
     ]
 
     # Filtering (Exact matches)
