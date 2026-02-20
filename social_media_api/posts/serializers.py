@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import *
 from accounts.serializers import UserSerializer
-from accounts.models import User
 from rest_framework.authtoken.models import Token
 
 
