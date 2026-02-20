@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-from .models import *
 from .serializers import *
 from .permissions import IsAuthorOrReadOnly
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
