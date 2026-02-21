@@ -6,6 +6,7 @@ from accounts.models import CustomUser
 # from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.generics import ListAPIView
 
 
 # Create your views here.
@@ -81,3 +82,11 @@ class MarkAllNotificationsReadView(generics.GenericAPIView):
     
     
 
+class NotificationListView(ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = NotificationSerializer
+
+    def get_queryset(self):
+        return Notification.objects.filter(
+            recipient=self.request.user
+        ).order_by("-timestamp")
