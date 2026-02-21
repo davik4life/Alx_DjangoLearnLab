@@ -30,3 +30,18 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.author.username} on {self.post.id} at {self.created_at}"
+    
+class Like(models.Model):
+    """
+    Model representing a like on a social media post.
+    """
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
+    
+    class Meta:
+        unique_together = ('post', 'user')  # Ensure a user can like a post only once
+
+    def __str__(self):
+        return f"{self.user.username} likes {self.post.title}"
+    
