@@ -6,9 +6,11 @@ class User(AbstractUser):
     """
     Custom user model extending Django's AbstractUser.
     """
+    # Additional fields for user profile (first name, last name, email, username, and password are already included in AbstractUser)
     bio = models.TextField(blank=True, null=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
-    followers = models.ManyToManyField('self', symmetrical=False, related_name='following', blank=True)
+    following = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
+    
 
     def __str__(self):
         return self.username
