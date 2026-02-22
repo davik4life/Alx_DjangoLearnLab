@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
-User = settings.AUTH_USER_MODEL
+CustomUser = settings.AUTH_USER_MODEL
 
 # Create your models here.
 class Notification(models.Model):
@@ -11,8 +11,8 @@ class Notification(models.Model):
     Model representing a notification for a user.
     """
 
-    recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
-    actor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='actor')
+    recipient = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='notifications')
+    actor = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='actor')
     verb = models.CharField(max_length=255) # Describing the Action
     target = GenericForeignKey('content_type', 'object_id')
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True, blank=True)

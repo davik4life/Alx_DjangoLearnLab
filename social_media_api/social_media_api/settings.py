@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-+0q&ga7v6t0whz3&y+_uz1g@s++2g()%em^x=z=0rob7tl7n=q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [ ".onrender.com", "localhost"]
 
 # Security Settings
 SECURE_SSL_REDIRECT = True
@@ -137,7 +137,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Use User model from accounts app
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Configure REST framework
 REST_FRAMEWORK = {
