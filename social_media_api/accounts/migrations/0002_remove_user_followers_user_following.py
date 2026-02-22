@@ -12,11 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='user',
+            model_name='customuser',
             name='followers',
         ),
         migrations.AddField(
-            model_name='user',
+            model_name='customuser',
             name='following',
             field=models.ManyToManyField(blank=True, related_name='followers', to=settings.AUTH_USER_MODEL),
         ),
