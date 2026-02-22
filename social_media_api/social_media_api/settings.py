@@ -39,7 +39,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CSRF_TRUSTED_ORIGINS = [
     "https://alx-djangolearnlab-een8.onrender.com"
 ]
-
+PORT = int(os.environ.get('PORT', 8000))
 
 
 # Application definition
